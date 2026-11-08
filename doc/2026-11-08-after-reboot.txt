@@ -1,0 +1,106 @@
+290.10 1885.77
+Sun Nov  8 13:45:23 CST 2026
+VibratorManagerService:
+  VibrationSettings:
+    vibrateOn = true
+    vibrateInputDevices = false
+    batterySaverMode = false
+    ringerMode = silent
+    onWirelessCharger = false
+    processStateCache size = 53
+    VibrationIntensities:
+      UNKNOWN = OFF, default: MEDIUM
+      ALARM = MEDIUM, default: MEDIUM
+      TOUCH = OFF, default: MEDIUM
+      MEDIA = OFF, default: MEDIUM
+      RINGTONE = HIGH, default: HIGH
+      PHYSICAL_EMULATION = MEDIUM, default: MEDIUM
+      NOTIFICATION = HIGH, default: HIGH
+      HARDWARE_FEEDBACK = MEDIUM, default: MEDIUM
+      COMMUNICATION_REQUEST = HIGH, default: HIGH
+      ACCESSIBILITY = MEDIUM, default: MEDIUM
+      IME = OFF, default: MEDIUM
+      GESTURE_INPUT = MEDIUM, default: MEDIUM
+    VibrationConfig:
+      ignoreVibrationsOnWirelessCharger = false
+      defaultVibrationAmplitude = 255
+      hapticChannelMaxAmplitude = 0.0
+      vibrationScaleFactors = null
+      externalVibrationScaleFactors = null
+      rampStepDurationMs = 5
+      rampDownDurationMs = 50
+      requestVibrationParamsForUsages = [ALARM, RINGTONE, NOTIFICATION, COMMUNICATION_REQUEST]
+      requestVibrationParamsTimeoutMs = 50
+  
+  VibrationScaler:
+    ScaleLevels:
+      VERY_LOW = 0.5102041
+      LOW = 0.71428573
+      NONE = 1.0
+      HIGH = 1.4
+      VERY_HIGH = 1.9599999
+    AdaptiveHapticsScales = null
+    DeviceConfigVibrationScales = null
+    DeviceConfigExternalVibrationScales = null
+  
+  Native HAL VibratorManager:
+    capabilitiesFlags = 0
+    vibratorIds = [0]
+    Vibrators:
+      Vibrator (id=0):
+        currentState = IDLE
+        currentAmplitude = 0.0
+        vibratorInfoLoadSuccessful = true
+        vibratorStateListener size = 0
+        VibratorInfo:
+          id = 0
+          capabilities = [ON_CALLBACK, PERFORM_CALLBACK, AMPLITUDE_CONTROL]
+          capabilitiesFlags = 111
+          supportedEffects = [CLICK, TICK, TEXTURE_TICK]
+          supportedPrimitives = []
+          supportedBraking = []
+          primitiveDelayMax = 0
+          compositionSizeMax = 0
+          pwlePrimitiveDurationMax = 0
+          pwleSizeMax = 0
+          q-factor = NaN
+          frequencyProfileLegacy = FrequencyProfileLegacy{mFrequencyRange=null, mMinFrequency=NaN, mResonantFrequency=NaN, mFrequencyResolution=NaN, mMaxAmplitudes count=0}
+          frequencyProfile = FrequencyProfile{mResonantFrequency=NaN, mFrequenciesHz=null, mOutputAccelerationsGs=null, mMinFrequencyHz=NaN, mMaxFrequencyHz=NaN, mMaxOutputAccelerationGs=NaN}
+          mMaxEnvelopeEffectSize = 0
+          mMinEnvelopeEffectControlPointDurationMillis = 0
+          mMaxEnvelopeEffectControlPointDurationMillis = 0
+  
+  
+  CurrentVibration:
+    null
+  
+  NextVibration:
+    null
+  
+  
+  Recent vibrations:
+    TOUCH:
+      11-08 13:41:07.391 |   effect | ignored_for_settings | duration:     1ms | start:              | end: 13:41:07.391 | scale:      NONE (1.00) | adaptiveScale=1.00 | flags:    0 | usage: TOUCH | com.android.systemui (uid=10319, deviceId=0) | reason: null | played: Prebaked=CLICK(MEDIUM, with fallback) | original: null
+      11-08 13:41:08.141 |   effect | ignored_for_settings | duration:     0ms | start:              | end: 13:41:08.141 | scale:      NONE (1.00) | adaptiveScale=1.00 | flags:    0 | usage: TOUCH | com.android.systemui (uid=10319, deviceId=0) | reason: null | played: Prebaked=CLICK(MEDIUM, with fallback) | original: null
+      11-08 13:41:08.474 |   effect | ignored_for_settings | duration:     0ms | start:              | end: 13:41:08.474 | scale:      NONE (1.00) | adaptiveScale=1.00 | flags:    0 | usage: TOUCH | com.android.systemui (uid=10319, deviceId=0) | reason: null | played: Prebaked=CLICK(MEDIUM, with fallback) | original: null
+      11-08 13:41:08.822 |   effect | ignored_for_settings | duration:     1ms | start:              | end: 13:41:08.822 | scale:      NONE (1.00) | adaptiveScale=1.00 | flags:    0 | usage: TOUCH | com.android.systemui (uid=10319, deviceId=0) | reason: null | played: Prebaked=CLICK(MEDIUM, with fallback) | original: null
+      11-08 13:41:16.742 |   effect | ignored_for_settings | duration:     0ms | start:              | end: 13:41:16.742 | scale:      NONE (1.00) | adaptiveScale=1.00 | flags:    0 | usage: TOUCH | com.android.systemui (uid=10319, deviceId=0) | reason: null | played: Prebaked=CLICK(MEDIUM, with fallback) | original: null
+      11-08 13:41:19.733 |   effect | ignored_for_settings | duration:     0ms | start:              | end: 13:41:19.733 | scale:      NONE (1.00) | adaptiveScale=1.00 | flags:    0 | usage: TOUCH | com.android.systemui (uid=10319, deviceId=0) | reason: null | played: Prebaked=CLICK(MEDIUM, with fallback) | original: null
+      11-08 13:42:01.530 |   effect | ignored_for_settings | duration:     0ms | start:              | end: 13:42:01.530 | scale:      NONE (1.00) | adaptiveScale=1.00 | flags:    0 | usage: TOUCH | com.android.systemui (uid=10319, deviceId=0) | reason: null | played: Prebaked=CLICK(MEDIUM, with fallback) | original: null
+      11-08 13:42:18.313 |   effect | ignored_for_settings | duration:     0ms | start:              | end: 13:42:18.314 | scale:      NONE (1.00) | adaptiveScale=1.00 | flags:    0 | usage: TOUCH | com.android.launcher3 (uid=10313, deviceId=0) | reason: performHapticFeedback(constant=1): ViewRootImpl#performHapticFeedback | played: Prebaked=CLICK(MEDIUM, with fallback) | original: null
+      11-08 13:42:20.639 |   effect | ignored_for_settings | duration:     0ms | start:              | end: 13:42:20.640 | scale:      NONE (1.00) | adaptiveScale=1.00 | flags:    0 | usage: TOUCH | com.android.systemui (uid=10319, deviceId=0) | reason: null | played: Prebaked=CLICK(MEDIUM, with fallback) | original: null
+      11-08 13:44:54.788 |   effect | ignored_for_settings | duration:     0ms | start:              | end: 13:44:54.789 | scale:      NONE (1.00) | adaptiveScale=1.00 | flags:    0 | usage: TOUCH | com.android.systemui (uid=10319, deviceId=0) | reason: null | played: Prebaked=CLICK(MEDIUM, with fallback) | original: null
+      11-08 13:44:58.077 |   effect | ignored_for_settings | duration:     0ms | start:              | end: 13:44:58.077 | scale:      NONE (1.00) | adaptiveScale=1.00 | flags:    0 | usage: TOUCH | com.android.systemui (uid=10319, deviceId=0) | reason: null | played: Prebaked=CLICK(MEDIUM, with fallback) | original: null
+      11-08 13:45:01.479 |   effect | ignored_for_settings | duration:     0ms | start:              | end: 13:45:01.479 | scale:      NONE (1.00) | adaptiveScale=1.00 | flags:    0 | usage: TOUCH | com.android.launcher3 (uid=10313, deviceId=0) | reason: performHapticFeedback(constant=1): ViewRootImpl#performHapticFeedback | played: Prebaked=CLICK(MEDIUM, with fallback) | original: null
+      11-08 13:45:02.165 |   effect | ignored_for_settings | duration:     0ms | start:              | end: 13:45:02.165 | scale:      NONE (1.00) | adaptiveScale=1.00 | flags:    0 | usage: TOUCH | com.android.systemui (uid=10319, deviceId=0) | reason: null | played: Prebaked=CLICK(MEDIUM, with fallback) | original: null
+    
+  
+  
+  Aggregated vibration history:
+  
+  
+  VibratorControlService:
+    isVibratorControllerRegistered = false
+    hasPendingVibrationParamsRequest = false
+    
+    Vibration parameters update history:

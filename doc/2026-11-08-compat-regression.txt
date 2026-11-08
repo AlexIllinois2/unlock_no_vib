@@ -1,0 +1,49 @@
+# 兼容版回归验证（2026-11-08 14:11 – 14:14）
+
+设备：Redmi Note 8 Pro（begonia）/ Project Infinity X / Android 16 / BP4A.251205.006
+模块：dev.n8p.unlockvibfix（兼容版，独立 try/catch + vibrateError hook）
+验证方式：重新编译安装 → adb reboot → 用户实测指纹成功 1 次、指纹失败 2 次、人脸成功 1 次
+
+## 1. 模块加载日志
+
+```
+[2026-11-08T14:11:20.499 1000:1533] UnlockVibFix: biometric success installed: com.android.server.biometrics.sensors.AcquisitionClient#vibrateSuccess (1 overload(s))
+[2026-11-08T14:11:20.499 1000:1533] UnlockVibFix: biometric error skipped: com.android.server.biometrics.sensors.AcquisitionClient#vibrateError not found
+[2026-11-08T14:11:20.499 1000:1533] UnlockVibFix: hooks in android: installed=1, skipped=1
+[2026-11-08T14:11:29.742 10319:1927] UnlockVibFix: MSDL installed: com.google.android.msdl.domain.MSDLPlayerImpl#playToken (1 overload(s))
+[2026-11-08T14:11:29.752 10319:1927] UnlockVibFix: DeviceEntry installed: android.view.View#performHapticFeedback (3 overload(s))
+[2026-11-08T14:11:29.753 10319:1927] UnlockVibFix: hooks in com.android.systemui: installed=4, skipped=0
+```
+
+说明：`vibrateError` 在 Android 16 上不存在，属预期 skipped；两处 SystemUI hook 均独立安装成功。
+
+## 2. 拦截日志（用户实测窗口）
+
+```
+[2026-11-08T14:13:07.073 10319:1927] UnlockVibFix: suppressed device entry haptic 10004   # 指纹成功
+[2026-11-08T14:13:15.265 10319:1927] UnlockVibFix: suppressed device entry haptic 10005   # 指纹失败 1
+[2026-11-08T14:13:17.461 10319:1927] UnlockVibFix: suppressed device entry haptic 10005   # 指纹失败 2
+[2026-11-08T14:13:21.924 10319:1927] UnlockVibFix: suppressed device entry haptic 10004   # 人脸成功
+```
+
+开机后首次解锁另有：
+```
+[2026-11-08T14:11:46.500 1000:1533] UnlockVibFix: suppressed biometric success vibration
+[2026-11-08T14:11:48.644 10319:1927] UnlockVibFix: suppressed MSDL UNLOCK
+```
+
+## 3. dumpsys vibrator_manager
+
+抓取时间：2026-11-08 14:14:47，覆盖 14:11 开机至 14:14 实测全过程。
+
+```
+$ dumpsys vibrator_manager | grep -c 'usage: HARDWARE_FEEDBACK'
+0
+```
+
+最近振动均为 `usage: TOUCH`（SystemUI / launcher3 / Settings 的点击与按键触感），无任何 `usage: HARDWARE_FEEDBACK` 条目。
+
+## 4. 结论
+
+- 兼容版在 Project Infinity X（Android 16）上行为与旧版一致，无退化。
+- 拦截路径 1/2/3 全部生效；方法缺失时按设计记录 skipped，不再静默失效。
